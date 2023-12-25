@@ -5,6 +5,10 @@
 	let storedDice = [];
 
 	const getRandomDiceValue = () => Math.floor(Math.random() * 6) + 1;
+
+	const rollDice = () => {
+		dice = [...dice].map((die) => ({ ...die, value: getRandomDiceValue() }));
+	};
 </script>
 
 <main>
