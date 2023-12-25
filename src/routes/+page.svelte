@@ -161,4 +161,38 @@
 		bottom: 20%;
 		right: 40%;
 	}
+
+	.button {
+		margin-top: 10px;
+		font-size: 18px;
+		cursor: pointer;
+		border: none;
+		border-radius: 5px;
+		padding: 10px 20px;
+	}
+
+	.roll-button {
+		background-color: #6cbdff;
+		color: #fff;
+	}
+
+	.exit-button {
+		background-color: rgb(242, 89, 89);
+		color: #fff;
+	}
+
+	.reset-button {
+		background-color: #78d77c;
+		color: #fff;
+	}
+
+	.info {
+		margin-top: 10px;
+		font-size: 16px;
+	}
+
+	.stored-dice-container {
+		margin-top: 20px;
+		display: flex;
+	}
 </style>
