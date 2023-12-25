@@ -20,7 +20,7 @@
 	const toggleStoreDice = (id) => {
 		const index = id - 1;
 		dice[index].isStored = !dice[index].isStored;
-		storedDice = dice.filter((die) => die.isStored);
+		storedDice = dice.filter((die) => die.isStored).sort((a, b) => a.value - b.value);
 	};
 
 	const resetDice = () => {
