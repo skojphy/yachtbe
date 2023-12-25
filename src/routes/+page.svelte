@@ -59,9 +59,11 @@
 
 	<div class="stored-dice-container">
 		<h2>주사위 보관소 👉</h2>
-		<div class="stored-dice">
-			<div>보관주사위1</div>
-		</div>
+		{#each storedDice as { id, value } (id)}
+			<div class="stored-dice">
+				<DiceEyes {value} />
+			</div>
+		{/each}
 	</div>
 
 	<div class="results">
@@ -126,5 +128,19 @@
 	.stored-dice-container {
 		margin-top: 20px;
 		display: flex;
+	}
+
+	.stored-dice {
+		position: relative;
+		width: 40px;
+		height: 40px;
+		background-color: white;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 15px;
+		margin: 0 10px;
 	}
 </style>
