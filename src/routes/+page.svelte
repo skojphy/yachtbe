@@ -23,7 +23,7 @@
 		<button>주사위5</button>
 	</div>
 
-	<button class="button roll-button">굴리기</button>
+	<button class="button roll-button" on:click={rollDice}>굴리기</button>
 	<button class="button exit-button">종료하기</button>
 	<button class="button reset-button">다시 굴리기</button>
 
