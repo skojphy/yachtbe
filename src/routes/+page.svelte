@@ -15,13 +15,12 @@
 
 		dice = [...dice].map((die) => (die.isStored ? die : { ...die, value: getRandomDiceValue() }));
 		rollsLeft -= 1;
-
-		if (rollsLeft === 0) showExitButton = true;
 	};
 
 	const toggleStoreDice = (id) => {
 		const index = id - 1;
 		dice[index].isStored = !dice[index].isStored;
+		showExitButton = dice.every((die) => die.isStored);
 		storedDice = dice.filter((die) => die.isStored).sort((a, b) => a.value - b.value);
 	};
 
