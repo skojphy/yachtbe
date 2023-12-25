@@ -2,6 +2,7 @@
 	const MAX_ROLLS = 3;
 
 	let dice = Array.from({ length: 5 }, (_, i) => ({ id: i + 1, value: 0, isStored: false }));
+	let storedDice = [];
 </script>
 
 <main>
