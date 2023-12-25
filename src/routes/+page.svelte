@@ -8,6 +8,8 @@
 	const getRandomDiceValue = () => Math.floor(Math.random() * 6) + 1;
 
 	const rollDice = () => {
+		if (rollsLeft <= 0) return null;
+
 		dice = [...dice].map((die) => ({ ...die, value: getRandomDiceValue() }));
 		rollsLeft -= 1;
 	};
