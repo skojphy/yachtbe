@@ -1,3 +1,7 @@
+<script>
+	let dice = Array.from({ length: 5 }, (_, i) => ({ id: i + 1, value: 0, isStored: false }));
+</script>
+
 <main>
 	<h1>Yachtsbe</h1>
 
