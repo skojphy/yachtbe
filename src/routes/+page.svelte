@@ -1,2 +1,34 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<main>
+	<h1>Yachtsbe</h1>
+
+	<div class="dice-container">
+		<h2>주사위</h2>
+		<button>주사위1</button>
+		<button>주사위2</button>
+		<button>주사위3</button>
+		<button>주사위4</button>
+		<button>주사위5</button>
+	</div>
+
+	<button class="button roll-button">굴리기</button>
+	<button class="button exit-button">종료하기</button>
+	<button class="button reset-button">다시 굴리기</button>
+
+	<div class="info">
+		<h2>안내</h2>
+		<p>보관할 주사위를 클릭해 주세요.</p>
+		<p>보관된 주사위를 클릭하면 다시 굴릴 수 있습니다.</p>
+	</div>
+
+	<div class="stored-dice-container">
+		<h2>주사위 보관소 👉</h2>
+		<div class="stored-dice">
+			<div>보관주사위1</div>
+		</div>
+	</div>
+
+	<div class="results">
+		<h2>평가 결과</h2>
+		<p>결과1</p>
+	</div>
+</main>
