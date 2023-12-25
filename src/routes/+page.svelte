@@ -17,6 +17,12 @@
 		if (rollsLeft === 0) showExitButton = true;
 	};
 
+	const toggleStoreDice = (id) => {
+		const index = id - 1;
+		dice[index].isStored = !dice[index].isStored;
+		storedDice = dice.filter((die) => die.isStored);
+	};
+
 	const resetDice = () => {
 		dice = Array.from({ length: 5 }, (_, i) => ({ id: i + 1, value: 0, isStored: false }));
 		storedDice = [];
@@ -31,7 +37,7 @@
 	<div class="dice-container">
 		<h2>주사위</h2>
 		{#each dice as { id, value, isStored } (id)}
-			<button class="dice"
+			<button class="dice" on:click={() => toggleStoreDice(id)}
 				>{#if value === 1}
 					<div class="dot center"></div>
 				{:else if value === 2}
