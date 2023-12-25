@@ -11,7 +11,7 @@
 	const rollDice = () => {
 		if (rollsLeft <= 0) return null;
 
-		dice = [...dice].map((die) => ({ ...die, value: getRandomDiceValue() }));
+		dice = [...dice].map((die) => (die.isStored ? die : { ...die, value: getRandomDiceValue() }));
 		rollsLeft -= 1;
 
 		if (rollsLeft === 0) showExitButton = true;
