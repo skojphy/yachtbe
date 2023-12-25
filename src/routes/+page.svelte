@@ -65,10 +65,10 @@
 		{/each}
 	</div>
 
-	<div class="results">
+	<!-- <div class="results">
 		<h2>평가 결과</h2>
 		<p>결과1</p>
-	</div>
+	</div> -->
 </main>
 
 <style>
