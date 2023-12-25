@@ -13,6 +13,12 @@
 		dice = [...dice].map((die) => ({ ...die, value: getRandomDiceValue() }));
 		rollsLeft -= 1;
 	};
+
+	const resetDice = () => {
+		dice = Array.from({ length: 5 }, (_, i) => ({ id: i + 1, value: 0, isStored: false }));
+		storedDice = [];
+		rollsLeft = MAX_ROLLS;
+	};
 </script>
 
 <main>
@@ -56,7 +62,7 @@
 
 	<button class="button roll-button" on:click={rollDice}>굴리기</button>
 	<button class="button exit-button">종료하기</button>
-	<button class="button reset-button">다시 굴리기</button>
+	<button class="button reset-button" on:click={resetDice}>다시 굴리기</button>
 
 	<div class="info">
 		<h2>안내</h2>
