@@ -3,6 +3,8 @@
 
 	let dice = Array.from({ length: 5 }, (_, i) => ({ id: i + 1, value: 0, isStored: false }));
 	let storedDice = [];
+
+	const getRandomDiceValue = () => Math.floor(Math.random() * 6) + 1;
 </script>
 
 <main>
