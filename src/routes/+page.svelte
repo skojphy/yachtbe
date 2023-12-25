@@ -60,7 +60,7 @@
 		<h2>주사위 보관소 👉</h2>
 		{#each storedDice as { id, value } (id)}
 			<div class="stored-dice">
-				<DiceEyes {value} />
+				<DiceEyes {value} isStored={true} />
 			</div>
 		{/each}
 	</div>

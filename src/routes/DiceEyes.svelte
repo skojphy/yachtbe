@@ -1,34 +1,35 @@
 <script>
-	export let value;
+	export let value = 0;
+	export let isStored = false;
 </script>
 
 {#if value === 1}
-	<div class="dot center"></div>
+	<div class="dot center" class:stored={isStored}></div>
 {:else if value === 2}
-	<div class="dot top-left"></div>
-	<div class="dot bottom-right"></div>
+	<div class="dot top-left" class:stored={isStored}></div>
+	<div class="dot bottom-right" class:stored={isStored}></div>
 {:else if value === 3}
-	<div class="dot top-left"></div>
-	<div class="dot center"></div>
-	<div class="dot bottom-right"></div>
+	<div class="dot top-left" class:stored={isStored}></div>
+	<div class="dot center" class:stored={isStored}></div>
+	<div class="dot bottom-right" class:stored={isStored}></div>
 {:else if value === 4}
-	<div class="dot top-left"></div>
-	<div class="dot top-right"></div>
-	<div class="dot bottom-left"></div>
-	<div class="dot bottom-right"></div>
+	<div class="dot top-left" class:stored={isStored}></div>
+	<div class="dot top-right" class:stored={isStored}></div>
+	<div class="dot bottom-left" class:stored={isStored}></div>
+	<div class="dot bottom-right" class:stored={isStored}></div>
 {:else if value === 5}
-	<div class="dot top-left"></div>
-	<div class="dot top-right"></div>
-	<div class="dot center"></div>
-	<div class="dot bottom-left"></div>
-	<div class="dot bottom-right"></div>
+	<div class="dot top-left" class:stored={isStored}></div>
+	<div class="dot top-right" class:stored={isStored}></div>
+	<div class="dot center" class:stored={isStored}></div>
+	<div class="dot bottom-left" class:stored={isStored}></div>
+	<div class="dot bottom-right" class:stored={isStored}></div>
 {:else if value === 6}
-	<div class="dot top-left"></div>
-	<div class="dot top-center"></div>
-	<div class="dot top-right"></div>
-	<div class="dot bottom-left"></div>
-	<div class="dot bottom-center"></div>
-	<div class="dot bottom-right"></div>
+	<div class="dot top-left" class:stored={isStored}></div>
+	<div class="dot top-center" class:stored={isStored}></div>
+	<div class="dot top-right" class:stored={isStored}></div>
+	<div class="dot bottom-left" class:stored={isStored}></div>
+	<div class="dot bottom-center" class:stored={isStored}></div>
+	<div class="dot bottom-right" class:stored={isStored}></div>
 {/if}
 
 <style>
@@ -73,5 +74,10 @@
 	.bottom-center {
 		bottom: 20%;
 		right: 40%;
+	}
+
+	.stored {
+		width: 7px;
+		height: 7px;
 	}
 </style>
