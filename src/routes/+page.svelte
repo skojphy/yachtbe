@@ -16,11 +16,9 @@
 
 	<div class="dice-container">
 		<h2>주사위</h2>
-		<button>주사위1</button>
-		<button>주사위2</button>
-		<button>주사위3</button>
-		<button>주사위4</button>
-		<button>주사위5</button>
+		{#each dice as { id, value, isStored } (id)}
+			<button>{`주사위${id}: ${value}`}</button>
+		{/each}
 	</div>
 
 	<button class="button roll-button" on:click={rollDice}>굴리기</button>
