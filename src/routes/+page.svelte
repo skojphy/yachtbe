@@ -37,7 +37,7 @@
 	<div class="dice-container">
 		<h2>주사위</h2>
 		{#each dice as { id, value, isStored } (id)}
-			<button class="dice" on:click={() => toggleStoreDice(id)}
+			<button class={`dice ${isStored ? 'stored' : ''}`} on:click={() => toggleStoreDice(id)}
 				>{#if value === 1}
 					<div class="dot center"></div>
 				{:else if value === 2}
@@ -113,6 +113,10 @@
 		font-size: 20px;
 		font-weight: bold;
 		margin: 0 10px;
+	}
+
+	.stored {
+		border: 2px solid rgb(255, 110, 110);
 	}
 
 	.dot {
