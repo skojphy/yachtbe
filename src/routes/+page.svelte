@@ -121,6 +121,10 @@
 </main>
 
 <style>
+	main {
+		padding: 10px;
+	}
+
 	.dice-container {
 		display: flex;
 		justify-content: space-between;
