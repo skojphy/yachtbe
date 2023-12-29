@@ -1,6 +1,9 @@
 <script>
 	import DiceEyes from './components/DiceEyes.svelte';
-	import Info from './components/Info.svelte';
+	// import Info from './components/Info.svelte';
+	import Result from './components/Result.svelte';
+	import ToolTip from './components/ToolTip.svelte';
+	import { getRandomDiceValue } from '$utils';
 
 	const MAX_ROLLS = 3;
 
@@ -8,8 +11,8 @@
 	let storedDice = [];
 	let rollsLeft = MAX_ROLLS;
 	let showExitButton = false;
-
-	const getRandomDiceValue = () => Math.floor(Math.random() * 6) + 1;
+	let showResult = false;
+	let result = {};
 
 	const rollDice = () => {
 		if (rollsLeft <= 0) return null;
@@ -32,10 +35,56 @@
 		rollsLeft = MAX_ROLLS;
 		showExitButton = false;
 	};
+
+	const endTurn = () => {
+		showResult = true;
+		result = getResult();
+	};
+
+	const countDice = (numberOfEyes) => storedDice.filter((die) => die.value === numberOfEyes).length;
+
+	const getResult = () => {
+		const diceCount = {
+			ones: countDice(1),
+			twos: countDice(2),
+			threes: countDice(3),
+			fours: countDice(4),
+			fives: countDice(5),
+			sixes: countDice(6)
+		};
+		const hasCount = (count) => Object.values(diceCount).some((value) => value === count);
+		const hasValue = (value) => storedDice.includes(value);
+		const totalSum = storedDice.reduce((acc, die) => acc + die.value, 0);
+		const isFourOfAKind = hasCount(4) || hasCount(5);
+		const isYacht = hasCount(5);
+		const isFullHouse = (hasCount(3) && hasCount(2)) || hasCount(5);
+		const isSmallStraight =
+			[1, 2, 3, 4].every(hasValue) || [2, 3, 4, 5].every(hasValue) || [3, 4, 5, 6].every(hasValue);
+		const isLargeStraight = [1, 2, 3, 4, 5].every(hasValue) || [2, 3, 4, 5, 6].every(hasValue);
+
+		const result = {
+			ones: diceCount.ones * 1,
+			twos: diceCount.twos * 2,
+			threes: diceCount.threes * 3,
+			fours: diceCount.fours * 4,
+			fives: diceCount.fives * 5,
+			sixes: diceCount.sixes * 6,
+			choice: totalSum,
+			fourOfAKind: isFourOfAKind ? totalSum : 0,
+			fullHouse: isFullHouse ? totalSum : 0,
+			smallStraight: isSmallStraight ? 15 : 0,
+			largeStraight: isLargeStraight ? 30 : 0,
+			yacht: isYacht ? 50 : 0
+		};
+
+		return result;
+	};
 </script>
 
 <main>
 	<h1>Yachtsbe</h1>
+
+	<ToolTip />
 
 	<div class="dice-container">
 		<h2 class="a11y-hidden">주사위</h2>
@@ -46,30 +95,38 @@
 		{/each}
 	</div>
 
-	<button class="button roll-button" on:click={rollDice}>굴리기</button>
-	{#if showExitButton}
-		<button class="button exit-button">종료하기</button>
-	{/if}
-	<button class="button reset-button" on:click={resetDice}>다시 굴리기</button>
+	<div class="buttons-container">
+		<button class="button roll-button" on:click={rollDice}>굴리기</button>
+		{#if showExitButton}
+			<button class="button exit-button" on:click={endTurn}>종료하기</button>
+		{/if}
+		<button class="button reset-button" on:click={resetDice}>다시 굴리기</button>
+	</div>
 
-	<Info />
+	<!-- <Info /> -->
 
-	<h2>주사위 보관소</h2>
+	<!-- <h2>주사위 보관소</h2>
 	<div class="stored-dice-container">
 		{#each storedDice as { id, value } (id)}
 			<div class="stored-dice">
 				<DiceEyes {value} isStored={true} />
 			</div>
 		{/each}
-	</div>
-
-	<!-- <div class="results">
-		<h2>평가 결과</h2>
-		<p>결과1</p>
 	</div> -->
+
+	{#if showResult}
+		<div class="results">
+			<h2 class="a11y-hidden">결과</h2>
+			<Result {result} />
+		</div>
+	{/if}
 </main>
 
 <style>
+	main {
+		padding: 10px;
+	}
+
 	.dice-container {
 		display: flex;
 		justify-content: space-between;
@@ -96,14 +153,20 @@
 		border: 2px solid rgb(255, 110, 110);
 	}
 
+	.buttons-container {
+		display: flex;
+		justify-content: space-evenly;
+	}
+
 	.button {
 		margin-top: 10px;
 		font-size: 18px;
 		cursor: pointer;
 		border: none;
 		border-radius: 5px;
-		padding: 10px 20px;
+		padding: 10px 0;
 		color: #fff;
+		width: 100px;
 	}
 
 	.roll-button {
