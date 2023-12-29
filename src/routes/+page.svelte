@@ -36,7 +36,7 @@
 	<h1>Yachtsbe</h1>
 
 	<div class="dice-container">
-		<h2>주사위</h2>
+		<h2 class="a11y-hidden">주사위</h2>
 		{#each dice as { id, value, isStored } (id)}
 			<button class={`dice ${isStored ? 'stored' : ''}`} on:click={() => toggleStoreDice(id)}>
 				<DiceEyes {value} />
@@ -51,7 +51,7 @@
 	<button class="button reset-button" on:click={resetDice}>다시 굴리기</button>
 
 	<div class="info">
-		<h2>안내</h2>
+		<h2 class="a11y-hidden">안내</h2>
 		<p>보관할 주사위를 클릭해 주세요.</p>
 		<p>보관된 주사위를 클릭하면 다시 굴릴 수 있습니다.</p>
 	</div>
