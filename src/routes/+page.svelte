@@ -78,8 +78,10 @@
 
 	.dice {
 		position: relative;
-		width: 60px;
-		height: 60px;
+		width: 55px;
+		min-width: 55px;
+		height: 55px;
+		min-height: 55px;
 		background-color: white;
 		border: 1px solid #ccc;
 		border-radius: 5px;
@@ -102,21 +104,19 @@
 		border: none;
 		border-radius: 5px;
 		padding: 10px 20px;
+		color: #fff;
 	}
 
 	.roll-button {
 		background-color: #6cbdff;
-		color: #fff;
 	}
 
 	.exit-button {
-		background-color: rgb(242, 89, 89);
-		color: #fff;
+		background-color: rgb(255, 110, 110);
 	}
 
 	.reset-button {
 		background-color: #78d77c;
-		color: #fff;
 	}
 
 	.info {
