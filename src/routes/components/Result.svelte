@@ -36,3 +36,32 @@
 		{/each}
 	</tbody>
 </table>
+
+<style>
+	table {
+		border-collapse: collapse;
+		width: 100%;
+		margin: 20px 0;
+	}
+
+	th,
+	td {
+		border: 1px solid #ddd;
+		padding: 12px;
+		text-align: left;
+	}
+
+	th {
+		background-color: #f2f2f2;
+		font-weight: bold;
+	}
+
+	/* Style every other row */
+	tr:nth-child(even) {
+		background-color: #f9f9f9;
+	}
+
+	.separator {
+		border-bottom: 2px solid #ddd;
+	}
+</style>
