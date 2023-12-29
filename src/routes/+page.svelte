@@ -3,6 +3,7 @@
 	import Info from './components/Info.svelte';
 	import Result from './components/Result.svelte';
 	import ToolTip from './components/ToolTip.svelte';
+	import { getRandomDiceValue } from '$utils';
 
 	const MAX_ROLLS = 3;
 
@@ -11,8 +12,6 @@
 	let rollsLeft = MAX_ROLLS;
 	let showExitButton = false;
 	let showResult = false;
-
-	const getRandomDiceValue = () => Math.floor(Math.random() * 6) + 1;
 
 	const rollDice = () => {
 		if (rollsLeft <= 0) return null;
