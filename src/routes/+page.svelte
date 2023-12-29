@@ -125,6 +125,8 @@
 <style>
 	main {
 		padding: 10px;
+		display: flex;
+		flex-direction: column;
 	}
 
 	.dice-container {
