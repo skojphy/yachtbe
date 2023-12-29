@@ -117,7 +117,7 @@
 	{#if showResult}
 		<div class="results">
 			<h2 class="a11y-hidden">결과</h2>
-			<Result {result} />
+			<Result bind:result />
 		</div>
 	{/if}
 </main>

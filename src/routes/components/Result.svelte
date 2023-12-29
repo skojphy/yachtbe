@@ -2,22 +2,22 @@
 	export let result = {};
 	let resultCategories = [];
 
-	const {
-		ones,
-		twos,
-		threes,
-		fours,
-		fives,
-		sixes,
-		choice,
-		fourOfAKind,
-		fullHouse,
-		smallStraight,
-		largeStraight,
-		yacht
-	} = result;
-
 	$: {
+		const {
+			ones,
+			twos,
+			threes,
+			fours,
+			fives,
+			sixes,
+			choice,
+			fourOfAKind,
+			fullHouse,
+			smallStraight,
+			largeStraight,
+			yacht
+		} = result;
+
 		resultCategories = [
 			['Ones', ones],
 			['Twos', twos],
