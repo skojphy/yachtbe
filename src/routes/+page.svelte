@@ -1,5 +1,6 @@
 <script>
-	import DiceEyes from './DiceEyes.svelte';
+	import DiceEyes from './components/DiceEyes.svelte';
+	import Info from './components/Info.svelte';
 
 	const MAX_ROLLS = 3;
 
@@ -36,7 +37,7 @@
 	<h1>Yachtsbe</h1>
 
 	<div class="dice-container">
-		<h2>주사위</h2>
+		<h2 class="a11y-hidden">주사위</h2>
 		{#each dice as { id, value, isStored } (id)}
 			<button class={`dice ${isStored ? 'stored' : ''}`} on:click={() => toggleStoreDice(id)}>
 				<DiceEyes {value} />
@@ -50,14 +51,10 @@
 	{/if}
 	<button class="button reset-button" on:click={resetDice}>다시 굴리기</button>
 
-	<div class="info">
-		<h2>안내</h2>
-		<p>보관할 주사위를 클릭해 주세요.</p>
-		<p>보관된 주사위를 클릭하면 다시 굴릴 수 있습니다.</p>
-	</div>
+	<Info />
 
+	<h2>주사위 보관소</h2>
 	<div class="stored-dice-container">
-		<h2>주사위 보관소 👉</h2>
 		{#each storedDice as { id, value } (id)}
 			<div class="stored-dice">
 				<DiceEyes {value} isStored={true} />
@@ -74,12 +71,16 @@
 <style>
 	.dice-container {
 		display: flex;
+		justify-content: space-between;
+		margin: 20px 0;
 	}
 
 	.dice {
 		position: relative;
-		width: 60px;
-		height: 60px;
+		width: 55px;
+		min-width: 55px;
+		height: 55px;
+		min-height: 55px;
 		background-color: white;
 		border: 1px solid #ccc;
 		border-radius: 5px;
@@ -88,7 +89,6 @@
 		align-items: center;
 		font-size: 20px;
 		font-weight: bold;
-		margin: 0 10px;
 	}
 
 	.stored {
@@ -102,37 +102,33 @@
 		border: none;
 		border-radius: 5px;
 		padding: 10px 20px;
+		color: #fff;
 	}
 
 	.roll-button {
 		background-color: #6cbdff;
-		color: #fff;
 	}
 
 	.exit-button {
-		background-color: rgb(242, 89, 89);
-		color: #fff;
+		background-color: rgb(255, 110, 110);
 	}
 
 	.reset-button {
 		background-color: #78d77c;
-		color: #fff;
-	}
-
-	.info {
-		margin-top: 10px;
-		font-size: 16px;
 	}
 
 	.stored-dice-container {
 		margin-top: 20px;
 		display: flex;
+		justify-content: center;
 	}
 
 	.stored-dice {
 		position: relative;
-		width: 40px;
-		height: 40px;
+		width: 50px;
+		max-width: 50px;
+		height: 50px;
+		max-height: 50px;
 		background-color: white;
 		border: 1px solid #ccc;
 		border-radius: 5px;
@@ -140,6 +136,6 @@
 		justify-content: center;
 		align-items: center;
 		font-size: 15px;
-		margin: 0 10px;
+		margin: 0 5px;
 	}
 </style>

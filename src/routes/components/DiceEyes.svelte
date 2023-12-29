@@ -77,7 +77,7 @@
 	}
 
 	.stored {
-		width: 7px;
-		height: 7px;
+		width: 8px;
+		height: 8px;
 	}
 </style>
