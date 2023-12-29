@@ -34,6 +34,43 @@
 	};
 
 	const countDice = (numberOfEyes) => storedDice.filter((die) => die.value === numberOfEyes).length;
+
+	const getResult = () => {
+		const diceCount = {
+			ones: countDice(1),
+			twos: countDice(2),
+			threes: countDice(3),
+			fours: countDice(4),
+			fives: countDice(5),
+			sixes: countDice(6)
+		};
+		const hasCount = (count) => Object.values(diceCount).some((value) => value === count);
+		const hasValue = (value) => storedDice.includes(value);
+		const totalSum = storedDice.reduce((acc, die) => acc + die.value, 0);
+		const isFourOfAKind = hasCount(4) || hasCount(5);
+		const isYacht = hasCount(5);
+		const isFullHouse = (hasCount(3) && hasCount(2)) || hasCount(5);
+		const isSmallStraight =
+			[1, 2, 3, 4].every(hasValue) || [2, 3, 4, 5].every(hasValue) || [3, 4, 5, 6].every(hasValue);
+		const isLargeStraight = [1, 2, 3, 4, 5].every(hasValue) || [2, 3, 4, 5, 6].every(hasValue);
+
+		const result = {
+			ones: diceCount.ones * 1,
+			twos: diceCount.twos * 2,
+			threes: diceCount.threes * 3,
+			fours: diceCount.fours * 4,
+			fives: diceCount.fives * 5,
+			sixes: diceCount.sixes * 6,
+			choice: totalSum,
+			fourOfAKind: isFourOfAKind ? totalSum : 0,
+			fullHouse: isFullHouse ? totalSum : 0,
+			smallStraight: isSmallStraight ? 15 : 0,
+			largeStraight: isLargeStraight ? 30 : 0,
+			yacht: isYacht ? 50 : 0
+		};
+
+		return result;
+	};
 </script>
 
 <main>
