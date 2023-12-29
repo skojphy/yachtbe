@@ -95,7 +95,7 @@
 	</div>
 
 	<div class="buttons-container">
-		<button class="button roll-button" on:click={rollDice}>굴리기</button>
+		<button class="button roll-button" on:click={rollDice}>굴리기({rollsLeft}/{MAX_ROLLS})</button>
 		{#if showExitButton}
 			<button class="button exit-button" on:click={endTurn}>종료하기</button>
 		{/if}
