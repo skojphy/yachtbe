@@ -56,8 +56,8 @@
 		<p>보관된 주사위를 클릭하면 다시 굴릴 수 있습니다.</p>
 	</div>
 
+	<h2>주사위 보관소</h2>
 	<div class="stored-dice-container">
-		<h2>주사위 보관소 👉</h2>
 		{#each storedDice as { id, value } (id)}
 			<div class="stored-dice">
 				<DiceEyes {value} isStored={true} />
@@ -74,6 +74,7 @@
 <style>
 	.dice-container {
 		display: flex;
+		justify-content: space-between;
 	}
 
 	.dice {
@@ -90,7 +91,6 @@
 		align-items: center;
 		font-size: 20px;
 		font-weight: bold;
-		margin: 0 10px;
 	}
 
 	.stored {
@@ -127,12 +127,15 @@
 	.stored-dice-container {
 		margin-top: 20px;
 		display: flex;
+		justify-content: center;
 	}
 
 	.stored-dice {
 		position: relative;
-		width: 40px;
-		height: 40px;
+		width: 50px;
+		max-width: 50px;
+		height: 50px;
+		max-height: 50px;
 		background-color: white;
 		border: 1px solid #ccc;
 		border-radius: 5px;
@@ -140,6 +143,6 @@
 		justify-content: center;
 		align-items: center;
 		font-size: 15px;
-		margin: 0 10px;
+		margin: 0 5px;
 	}
 </style>
