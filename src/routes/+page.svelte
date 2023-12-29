@@ -72,6 +72,7 @@
 	.dice-container {
 		display: flex;
 		justify-content: space-between;
+		margin: 20px 0;
 	}
 
 	.dice {
