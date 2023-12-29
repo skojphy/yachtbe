@@ -19,6 +19,7 @@
 	};
 
 	const toggleStoreDice = (id) => {
+		if (rollsLeft === MAX_ROLLS) return;
 		const index = id - 1;
 		dice[index].isStored = !dice[index].isStored;
 		showExitButton = dice.every((die) => die.isStored);
