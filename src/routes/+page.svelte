@@ -1,5 +1,6 @@
 <script>
 	import DiceEyes from './components/DiceEyes.svelte';
+	import Info from './components/Info.svelte';
 
 	const MAX_ROLLS = 3;
 
@@ -50,11 +51,7 @@
 	{/if}
 	<button class="button reset-button" on:click={resetDice}>다시 굴리기</button>
 
-	<div class="info">
-		<h2 class="a11y-hidden">안내</h2>
-		<p>보관할 주사위를 클릭해 주세요.</p>
-		<p>보관된 주사위를 클릭하면 다시 굴릴 수 있습니다.</p>
-	</div>
+	<Info />
 
 	<h2>주사위 보관소</h2>
 	<div class="stored-dice-container">
@@ -117,11 +114,6 @@
 
 	.reset-button {
 		background-color: #78d77c;
-	}
-
-	.info {
-		margin-top: 10px;
-		font-size: 16px;
 	}
 
 	.stored-dice-container {
