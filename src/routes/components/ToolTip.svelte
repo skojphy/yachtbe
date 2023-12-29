@@ -4,6 +4,10 @@
 >
 
 <style>
+	span {
+		margin: auto;
+	}
+
 	/* START TOOLTIP STYLES */
 	[tooltip] {
 		position: relative;
