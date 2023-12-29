@@ -101,16 +101,17 @@
 		<button class="button reset-button" on:click={resetDice}>다시 굴리기</button>
 	</div>
 
-	<Info />
+	<!-- <Info /> -->
 
-	<h2>주사위 보관소</h2>
+	<!-- <h2>주사위 보관소</h2>
 	<div class="stored-dice-container">
 		{#each storedDice as { id, value } (id)}
 			<div class="stored-dice">
 				<DiceEyes {value} isStored={true} />
 			</div>
 		{/each}
-	</div>
+	</div> -->
+
 	{#if showResult}
 		<div class="results">
 			<h2 class="a11y-hidden">결과</h2>
