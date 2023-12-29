@@ -12,6 +12,7 @@
 	let rollsLeft = MAX_ROLLS;
 	let showExitButton = false;
 	let showResult = false;
+	let result = {};
 
 	const rollDice = () => {
 		if (rollsLeft <= 0) return null;
@@ -37,6 +38,7 @@
 
 	const endTurn = () => {
 		showResult = true;
+		result = getResult();
 	};
 
 	const countDice = (numberOfEyes) => storedDice.filter((die) => die.value === numberOfEyes).length;
@@ -115,7 +117,7 @@
 	{#if showResult}
 		<div class="results">
 			<h2 class="a11y-hidden">결과</h2>
-			<Result result={getResult()} />
+			<Result {result} />
 		</div>
 	{/if}
 </main>
