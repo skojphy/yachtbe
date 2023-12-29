@@ -52,7 +52,7 @@
 			sixes: countDice(6)
 		};
 		const hasCount = (count) => Object.values(diceCount).some((value) => value === count);
-		const hasValue = (value) => storedDice.includes(value);
+		const hasValue = (value) => storedDice.map((die) => die.value).includes(value);
 		const totalSum = storedDice.reduce((acc, die) => acc + die.value, 0);
 		const isFourOfAKind = hasCount(4) || hasCount(5);
 		const isYacht = hasCount(5);
