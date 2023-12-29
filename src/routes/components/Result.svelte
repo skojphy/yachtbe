@@ -56,12 +56,7 @@
 		font-weight: bold;
 	}
 
-	/* Style every other row */
 	tr:nth-child(even) {
 		background-color: #f9f9f9;
-	}
-
-	.separator {
-		border-bottom: 2px solid #ddd;
 	}
 </style>
