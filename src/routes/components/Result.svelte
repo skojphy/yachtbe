@@ -1,23 +1,41 @@
 <script>
 	export let result = {};
+	let resultCategories = [];
 
-	const resultCategories = [
-		'Ones',
-		'Twos',
-		'Threes',
-		'Fours',
-		'Fives',
-		'Sixes',
-		'Sub total',
-		'Bonus(35)',
-		'Choice',
-		'4 of a kind',
-		'Full house',
-		'Small straight',
-		'Large straight',
-		'Yacht',
-		'Total'
-	];
+	const {
+		ones,
+		twos,
+		threes,
+		fours,
+		fives,
+		sixes,
+		choice,
+		fourOfAKind,
+		fullHouse,
+		smallStraight,
+		largeStraight,
+		yacht
+	} = result;
+
+	$: {
+		resultCategories = [
+			['Ones', ones],
+			['Twos', twos],
+			['Threes', threes],
+			['Fours', fours],
+			['Fives', fives],
+			['Sixes', sixes],
+			['Sub total', 0],
+			['Bonus(35)', 0],
+			['Choice', choice],
+			['4 of a kind', fourOfAKind],
+			['Full house', fullHouse],
+			['Small straight', smallStraight],
+			['Large straight', largeStraight],
+			['Yacht', yacht],
+			['Total', 0]
+		];
+	}
 </script>
 
 <table>
@@ -28,10 +46,10 @@
 		</tr>
 	</thead>
 	<tbody>
-		{#each resultCategories as category (category)}
+		{#each resultCategories as [item, score] (item)}
 			<tr>
-				<td>{category}</td>
-				<td>0</td>
+				<td>{item}</td>
+				<td>{score}</td>
 			</tr>
 		{/each}
 	</tbody>
