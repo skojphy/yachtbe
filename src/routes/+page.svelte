@@ -1,6 +1,5 @@
 <script>
 	import DiceEyes from './components/DiceEyes.svelte';
-	// import Info from './components/Info.svelte';
 	import Result from './components/Result.svelte';
 	import ToolTip from './components/ToolTip.svelte';
 	import { getRandomDiceValue } from '$utils';
@@ -53,7 +52,7 @@
 			sixes: countDice(6)
 		};
 		const hasCount = (count) => Object.values(diceCount).some((value) => value === count);
-		const hasValue = (value) => storedDice.includes(value);
+		const hasValue = (value) => storedDice.map((die) => die.value).includes(value);
 		const totalSum = storedDice.reduce((acc, die) => acc + die.value, 0);
 		const isFourOfAKind = hasCount(4) || hasCount(5);
 		const isYacht = hasCount(5);
@@ -102,17 +101,6 @@
 		{/if}
 		<button class="button reset-button" on:click={resetDice}>다시 굴리기</button>
 	</div>
-
-	<!-- <Info /> -->
-
-	<!-- <h2>주사위 보관소</h2>
-	<div class="stored-dice-container">
-		{#each storedDice as { id, value } (id)}
-			<div class="stored-dice">
-				<DiceEyes {value} isStored={true} />
-			</div>
-		{/each}
-	</div> -->
 
 	{#if showResult}
 		<div class="results">
