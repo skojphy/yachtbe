@@ -85,11 +85,13 @@
 		{/each}
 	</div>
 
-	<button class="button roll-button" on:click={rollDice}>굴리기</button>
-	{#if showExitButton}
-		<button class="button exit-button">종료하기</button>
-	{/if}
-	<button class="button reset-button" on:click={resetDice}>다시 굴리기</button>
+	<div class="buttons-container">
+		<button class="button roll-button" on:click={rollDice}>굴리기</button>
+		{#if showExitButton}
+			<button class="button exit-button">종료하기</button>
+		{/if}
+		<button class="button reset-button" on:click={resetDice}>다시 굴리기</button>
+	</div>
 
 	<Info />
 
@@ -135,14 +137,20 @@
 		border: 2px solid rgb(255, 110, 110);
 	}
 
+	.buttons-container {
+		display: flex;
+		justify-content: space-evenly;
+	}
+
 	.button {
 		margin-top: 10px;
 		font-size: 18px;
 		cursor: pointer;
 		border: none;
 		border-radius: 5px;
-		padding: 10px 20px;
+		padding: 10px 0;
 		color: #fff;
+		width: 100px;
 	}
 
 	.roll-button {
