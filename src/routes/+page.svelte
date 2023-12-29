@@ -1,6 +1,7 @@
 <script>
 	import DiceEyes from './components/DiceEyes.svelte';
 	import Info from './components/Info.svelte';
+	import Result from './components/Result.svelte';
 
 	const MAX_ROLLS = 3;
 
@@ -8,6 +9,7 @@
 	let storedDice = [];
 	let rollsLeft = MAX_ROLLS;
 	let showExitButton = false;
+	let showResult = false;
 
 	const getRandomDiceValue = () => Math.floor(Math.random() * 6) + 1;
 
@@ -31,6 +33,10 @@
 		storedDice = [];
 		rollsLeft = MAX_ROLLS;
 		showExitButton = false;
+	};
+
+	const endTurn = () => {
+		showResult = true;
 	};
 
 	const countDice = (numberOfEyes) => storedDice.filter((die) => die.value === numberOfEyes).length;
@@ -88,7 +94,7 @@
 	<div class="buttons-container">
 		<button class="button roll-button" on:click={rollDice}>굴리기</button>
 		{#if showExitButton}
-			<button class="button exit-button">종료하기</button>
+			<button class="button exit-button" on:click={endTurn}>종료하기</button>
 		{/if}
 		<button class="button reset-button" on:click={resetDice}>다시 굴리기</button>
 	</div>
@@ -103,11 +109,12 @@
 			</div>
 		{/each}
 	</div>
-
-	<!-- <div class="results">
-		<h2>평가 결과</h2>
-		<p>결과1</p>
-	</div> -->
+	{#if showResult}
+		<div class="results">
+			<h2 class="a11y-hidden">결과</h2>
+			<Result result={getResult()} />
+		</div>
+	{/if}
 </main>
 
 <style>
