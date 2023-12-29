@@ -53,12 +53,14 @@
 
 	.top-center {
 		top: 20%;
-		right: 40%;
+		left: 50%;
+		transform: translateX(-50%);
 	}
 
 	.center {
-		top: 40%;
-		left: 40%;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
 	}
 
 	.bottom-left {
@@ -73,7 +75,8 @@
 
 	.bottom-center {
 		bottom: 20%;
-		right: 40%;
+		left: 50%;
+		transform: translateX(-50%);
 	}
 
 	.stored {
