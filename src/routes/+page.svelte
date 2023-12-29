@@ -1,6 +1,6 @@
 <script>
 	import DiceEyes from './components/DiceEyes.svelte';
-	import Info from './components/Info.svelte';
+	// import Info from './components/Info.svelte';
 	import Result from './components/Result.svelte';
 	import ToolTip from './components/ToolTip.svelte';
 	import { getRandomDiceValue } from '$utils';
