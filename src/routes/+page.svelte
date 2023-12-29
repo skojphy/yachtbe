@@ -32,6 +32,8 @@
 		rollsLeft = MAX_ROLLS;
 		showExitButton = false;
 	};
+
+	const countDice = (numberOfEyes) => storedDice.filter((die) => die.value === numberOfEyes).length;
 </script>
 
 <main>
