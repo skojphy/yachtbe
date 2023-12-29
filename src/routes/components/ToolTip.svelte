@@ -7,6 +7,7 @@
 	/* START TOOLTIP STYLES */
 	[tooltip] {
 		position: relative;
+		cursor: help;
 	}
 
 	/* Applies to all tooltips */
