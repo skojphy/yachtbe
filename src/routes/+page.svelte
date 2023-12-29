@@ -2,6 +2,7 @@
 	import DiceEyes from './components/DiceEyes.svelte';
 	import Info from './components/Info.svelte';
 	import Result from './components/Result.svelte';
+	import ToolTip from './components/ToolTip.svelte';
 
 	const MAX_ROLLS = 3;
 
@@ -81,6 +82,8 @@
 
 <main>
 	<h1>Yachtsbe</h1>
+
+	<ToolTip />
 
 	<div class="dice-container">
 		<h2 class="a11y-hidden">주사위</h2>
