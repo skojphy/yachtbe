@@ -1,5 +1,5 @@
 <script>
-	import DiceEyes from './DiceEyes.svelte';
+	import DiceEyes from './components/DiceEyes.svelte';
 
 	const MAX_ROLLS = 3;
 
